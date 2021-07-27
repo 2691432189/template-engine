@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">模板引擎</div>
+  </body>
+  <script src="xuni/bundle.js"></script>
+  <script type="text/template" id="tem"></script>
+  <script>
+    let tem = `
+      <div>
+        <p>
+          {{#arr}}
+            <div>
+                <p>{{a}}</p>
+                <p>{{b}}</p>
+                <p>{{c}}</p>
+            </div>
+          {{/arr}}
+        </p>
+      </div>
+    `
+
+    // let tem = `
+    //   <div>
+    //    {{a.b}}
+    //   </div>
+    // `
+    let data = {
+      a: {
+        b: 13,
+      },
+      arr: [
+        {
+          a: 10,
+          b: 20,
+          c: 30,
+        },
+        {
+          a: 10,
+          b: 20,
+          c: 30,
+        },
+        {
+          a: 10,
+          b: 20,
+          c: 30,
+        },
+      ],
+    }
+    let tems = TEMPLATE.rander(tem, data)
+    document.querySelector('#app').innerHTML = tems
+    console.log(tems)
+  </script>
+</html>
